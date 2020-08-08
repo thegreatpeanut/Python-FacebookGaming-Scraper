@@ -1,6 +1,4 @@
-# Python-FacebookGaming-Scraper
-
-#Just a FacebookGaming scraper.
+#Python-FacebookGaming-Scraper
 
 
 It's supposed to get the following from a **main URL** and **videos URL** :
