@@ -7,6 +7,7 @@ It's supposed to get the following from a **main URL** and **videos URL** :
 * Followers 
 * Likes on Page 
 * Views on Video 
+* Age of the Video
 * Likes on Video 
 
 
