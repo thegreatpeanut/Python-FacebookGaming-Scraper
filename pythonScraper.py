@@ -115,9 +115,9 @@ video_likes = driver.find_elements_by_class_name('pcp91wgn')
 
 
 
-# Iterate trough all elements || Must do otherwise errors 
+# Iterate trough all elements  
 	
-#video views - split list into AGE and VIEWS // make AGE/TIME :: 
+#video views - split list into AGE and VIEWS // make AGE/TIME  ?? Undecided
 # "a day ago" = 1
 # "a week ago" = 7
 # "a month ago" = 30
@@ -127,6 +127,8 @@ video_likes = driver.find_elements_by_class_name('pcp91wgn')
 video_age_views = [x.text for x in video]
 video.extend(video_age_views)
 video_age_views = [i for i in video_age_views if i]
+
+
 # trying to find a way to quantify the date for each video
 # [w.replace("a day ago", "1").replace("a week ago", "7").replace("days ago", "").replace("weeks ago" , "").replace("months ago" , "") for w in video_age_views]
 
