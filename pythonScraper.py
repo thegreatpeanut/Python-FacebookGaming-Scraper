@@ -36,7 +36,6 @@ print(name)
 # -------------------------------------------------------------------------------------------
 
 
-#Get Followers / Check if it works for other pages / Remove text , keep int only in var
 
 followers = driver.find_element_by_css_selector('div._2pi2:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)').text
 remove = " people follow this,"
@@ -44,7 +43,6 @@ pattern = "[" + remove + "]"
 followers = re.sub(pattern, "", followers)
 followers = int(followers)
 followers = f'{followers:,}'
-# followers = format(followers, "n") / another method
 
 print(followers)
 
@@ -93,22 +91,6 @@ def do_scroll():
 
 do_scroll()
 
-# time.sleep(1)
-
-
-# driver.execute_script("window.scrollTo(0, 10000)")
-
-
-# time.sleep(5)
-
-# not_now_button = driver.find_element_by_id('expanding_cta_close_button')
-# not_now_button.click()
-
-
-# time.sleep(3)
-
-
-
 
 # last_height = driver.execute_script("return document.body.scrollHeight")
 
@@ -146,72 +128,16 @@ video_likes = driver.find_elements_by_class_name('pcp91wgn')
 
 
 
-# Iterate trough all elements || Must do otherwise errors 
-	
-#video views - split list into AGE and VIEWS // make AGE/TIME :: 
-# "a day ago" = 1
-# "a week ago" = 7
-# "a month ago" = 30
-# "weeks" = 7
-# "months" = 30
-
 video_age_views = [x.text for x in video]
 video.extend(video_age_views)
 video_age_views = [i for i in video_age_views if i if not 'ago' in i]
 video_age_views = [w.replace("Views", "") for w in video_age_views]
-#removetable1 = str.maketrans('', '', '.')
-#video_age_views = [s.translate(removetable1) for s in video_age_views]
-#video_age_views = [w.replace("K", "") for w in video_age_views]
-#video_age_views = [w.replace("M", "") for w in video_age_views]
-#video_age_views = [w.replace(".", "") for w in video_age_views]
-
 k_val = "K"
 m_val = "M"
-
-# if any(k_val in s for s in video_age_views):
-#     video_age_views = [w.replace("K", "") for w in video_age_views]
-#     video_age_views = [float(i) for i in video_age_views]
-#     video_age_views = [elem * 1000 for elem in video_age_views]
-
-# elif any(m_val in x for x in video_age_views):
-#     video_age_views = [w.replace("M", "") for w in video_age_views]
-#     video_age_views = [float(i) for i in video_age_views]
-#     video_age_views = [elem * 1000000 for elem in video_age_views]
-
-
-## app 1
 e_list = [i.replace('K', 'e3').replace('M', 'e6') for i in video_age_views]
 values = [float(i) for i in e_list]
 video_age_views = [f'{int(i):,}' for i in values]
-
-
-
-
-
-     
-
-#video_likes_int = [float(i) for i in video_age_views]
-        
-
-
-
-# for i in range(0, len(video_age_views)):
-#     video_age_views[i] = int(video_age_views[i])
-#     video_age_views[i] = format(video_age_views[i], 'n')
-
-
-# inds_k = [ i for i, s in enumerate(video_age_views) if 'K' in s] + [len(video_age_views)]
-# div_1 = [video_age_views[inds_k[i]:inds_k[i+1]] for i in range(len(inds_k)-1)]
-
-# def divide_List(video_age_views):
-#     dct = {}
-#     for k_val in video_age_views:
-#         if k_val not in dct:
-#             dct[k_val] = k_val
-#     res = []
-#     for key in sorted(dct):
-#         res.append(dct[key])
-#     return res                
+         
 
 print(video_age_views)
 
