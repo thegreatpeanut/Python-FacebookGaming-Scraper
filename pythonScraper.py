@@ -40,7 +40,7 @@ name = driver.find_element_by_id('seo_h1_tag').text
 
 print(name)
 
-# -------------------------------------------------------------------------------------------
+# -----------------GET NUMBER OF FOLLOWERS--------------------------------------------------------------------------
 
 
 
@@ -58,7 +58,7 @@ print(followers)
 time.sleep(1)
 
 
-#Get Page Likes / Check if it works for other pages / Remove text , keep int only in var
+#------------------GET NUMBER OF PAGE LIKES------------------------------------------------------------------
 
 page_likes = driver.find_element_by_css_selector('div._2pi2:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)').text
 remove2 = ' people like this'
