@@ -130,67 +130,32 @@ last_height = driver.execute_script("return document.body.scrollHeight")
 
 #--------------------------------------------------------------------------------------------------------
 
+class delete_VAR:
+    def __init__(self, element):
+        self.element = element
 
-
-
-try:
-    element = driver.find_element_by_css_selector('div.cbu4d94t:nth-child(3) > div:nth-child(2)')
-    driver.execute_script("""
-    var element = arguments[0];
-    element.parentNode.removeChild(element);
-    """, element)
-except NoSuchElementException:
-    print("No element found")
-
-try:
-    element2 = driver.find_element_by_css_selector('div.cjfnh4rs:nth-child(2)')
-    driver.execute_script("""
-    var element2 = arguments[0];
-    element2.parentNode.removeChild(element2);
-    """, element2)
-except NoSuchElementException:
-    print("No element2 found")
-
-try:
-    element3 = driver.find_element_by_css_selector('html#facebook body._4-u5._2yq.UIPage_LoggedOut.hasBanner._-kb._605a.b_c3pyn-ahh.gecko.win.x1.Locale_en_US.cores-gte4._19_u.hasCookieBanner.hasAXNavMenubar div#u_0_6._li div#globalContainer.uiContextualLayerParent div#content.fb_content.clearfix div div.clearfix div._1qkq._1ql0 div#content_container div div#js_2._2pie div div div.c9zspvje.cbu4d94t.j83agx80 div.ihqw7lf3.cbu4d94t.j83agx80 div.j83agx80.l9j0dhe7.k4urcfbm div.rq0escxv.l9j0dhe7.du4w35lb.hybvsw6c.ue3kfks5.pw54ja7n.uo3d90p7.l82x9zwi.ni8dbmo4.stjgntxs.k4urcfbm.sbcfpzgs div.cbu4d94t.j83agx80 div.n851cfcs')
-    driver.execute_script("""
-    var element3 = arguments[0];
-    element3.parentNode.removeChild(element3);
-    """, element3)
-except NoSuchElementException:
-    print("No element3 found")
-
-try:
-    element4 = driver.find_element_by_css_selector('div.cbu4d94t:nth-child(4) > div:nth-child(2)')
-    driver.execute_script("""
-    var element4 = arguments[0];
-    element4.parentNode.removeChild(element4);
-    """, element4)
-except NoSuchElementException:
-    print("No element4 found")
-
-try:
-    element6 = driver.find_element_by_css_selector('div.n851cfcs:nth-child(2)')
-    driver.execute_script("""
-    var element6 = arguments[0];
-    element6.parentNode.removeChild(element6);
-    """, element6)
-except NoSuchElementException:
-    print("No element6 found")
-
-
-
+    def delete_p(self):
+        try:
+            ele = self.element
+            driver.execute_script("""
+            var ele = arguments[0];
+            ele.parentNode.removeChild(ele);
+            """, ele)
+        except NoSuchElementException:
+            print("No ele found")
     
 
+elem = delete_VAR(driver.find_element_by_css_selector('div.cwj9ozl2:nth-child(1)'))
+elem.delete_p()
 elem1 = delete_VAR(driver.find_element_by_css_selector('div.cbu4d94t:nth-child(3) > div:nth-child(2)'))
 elem1.delete_p()
-elem2 = delete_VAR("driver.find_element_by_css_selector('div.cjfnh4rs:nth-child(2)')")
+elem2 = delete_VAR(driver.find_element_by_css_selector('div.cjfnh4rs:nth-child(2)'))
 elem2.delete_p()
-elem3 = delete_VAR("driver.find_element_by_css_selector('html#facebook body._4-u5._2yq.UIPage_LoggedOut.hasBanner._-kb._605a.b_c3pyn-ahh.gecko.win.x1.Locale_en_US.cores-gte4._19_u.hasCookieBanner.hasAXNavMenubar div#u_0_6._li div#globalContainer.uiContextualLayerParent div#content.fb_content.clearfix div div.clearfix div._1qkq._1ql0 div#content_container div div#js_2._2pie div div div.c9zspvje.cbu4d94t.j83agx80 div.ihqw7lf3.cbu4d94t.j83agx80 div.j83agx80.l9j0dhe7.k4urcfbm div.rq0escxv.l9j0dhe7.du4w35lb.hybvsw6c.ue3kfks5.pw54ja7n.uo3d90p7.l82x9zwi.ni8dbmo4.stjgntxs.k4urcfbm.sbcfpzgs div.cbu4d94t.j83agx80 div.n851cfcs')")
+elem3 = delete_VAR(driver.find_element_by_css_selector('html#facebook body._4-u5._2yq.UIPage_LoggedOut.hasBanner._-kb._605a.b_c3pyn-ahh.gecko.win.x1.Locale_en_US.cores-gte4._19_u.hasCookieBanner.hasAXNavMenubar div#u_0_6._li div#globalContainer.uiContextualLayerParent div#content.fb_content.clearfix div div.clearfix div._1qkq._1ql0 div#content_container div div#js_2._2pie div div div.c9zspvje.cbu4d94t.j83agx80 div.ihqw7lf3.cbu4d94t.j83agx80 div.j83agx80.l9j0dhe7.k4urcfbm div.rq0escxv.l9j0dhe7.du4w35lb.hybvsw6c.ue3kfks5.pw54ja7n.uo3d90p7.l82x9zwi.ni8dbmo4.stjgntxs.k4urcfbm.sbcfpzgs div.cbu4d94t.j83agx80 div.n851cfcs'))
 elem3.delete_p()
-elem4 = delete_VAR("driver.find_element_by_css_selector('div.cbu4d94t:nth-child(4) > div:nth-child(2)')")
+elem4 = delete_VAR(driver.find_element_by_css_selector('div.cbu4d94t:nth-child(4) > div:nth-child(2)'))
 elem4.delete_p()
-elem5 = delete_VAR("driver.find_element_by_css_selector('div.n851cfcs:nth-child(2)')")
+elem5 = delete_VAR(driver.find_element_by_css_selector('div.n851cfcs:nth-child(2)'))
 elem5.delete_p()
 
 
@@ -254,6 +219,6 @@ result = pd.concat([df2, df3, df4, df, df1], axis=1)
 result.to_csv('ParsedConcat.csv')
 
 engine = create_engine('postgresql://postgres:@localhost:5432/FacebookGaming')
-result.to_sql('FBGaming', engine)
+result.to_sql('FBGaming2', engine)
 
 #driver.close()
