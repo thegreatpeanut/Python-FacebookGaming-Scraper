@@ -128,7 +128,7 @@ last_height = driver.execute_script("return document.body.scrollHeight")
 
 
 
-#--------------------------------------------------------------------------------------------------------
+#----------------------DELETE UNWANTED ELEMENTS-------------------------------------------------------------------------------
 
 class delete_VAR:
     def __init__(self, element):
@@ -158,9 +158,12 @@ elem4.delete_p()
 elem5 = delete_VAR(driver.find_element_by_css_selector('div.n851cfcs:nth-child(2)'))
 elem5.delete_p()
 
+#-------------------GET LIST OF VIDEO LIKES AND VIEWS----------------------------------------------------
 
 video = driver.find_elements_by_class_name('bnpdmtie')
 video_likes = driver.find_elements_by_class_name('pcp91wgn')
+
+#-------------------------PARSE AND PROCESS VIDEO VIEWS-------------------------------------------------------------------------------
 
 video_age_views = [x.text for x in video]
 video.extend(video_age_views)
@@ -176,8 +179,9 @@ video_age_views = [s.translate(removetable) for s in video_age_views]
 print(video_age_views)
 
 
+#------------------------PARSE AND PROCESS VIDEO LIKES----------------------------------------------------------------------------------------------
 
-# video likes
+
 parsed_video_likes = [x.text for x in video_likes]
 video_likes.extend(parsed_video_likes)
 parsed_video_likes = [i for i in parsed_video_likes if i]
@@ -192,9 +196,11 @@ for i in range(0, len(parsed_video_likes)):
 print(parsed_video_likes)
 
 # --------------------------------------------------------------------------------------------------------------
+
+
 time.sleep(3)
 
-
+#--------------------------------INIT DATA FRAMES, SEPARATELY THEN JOIN THEM INTO ONE DATA FRAME--------------------------------
 
 searchfor = ['ago']
 
@@ -215,6 +221,7 @@ result = pd.concat([df2, df3, df4, df, df1], axis=1)
 
 #result = result.fillna(" ")
 
+#-----------------SEND DATA FRAME TO CSV THEN TO DB----------------------------------------------------------------------------------------------
 
 result.to_csv('ParsedConcat.csv')
 
