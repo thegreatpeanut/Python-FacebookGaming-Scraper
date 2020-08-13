@@ -191,19 +191,6 @@ try:
 except NoSuchElementException:
     print("No element6 found")
 
-
-ele = [x for x in element_list]
-
-def
-    try:
-        driver.execute_script("""
-        var ele = arguments[0];
-        ele.parentNode.removeChild(ele);
-        """, ele)
-    except NoSuchElementException:
-        print("No ele found")
-        
-
 #-------------------GET LIST OF VIDEO LIKES AND VIEWS----------------------------------------------------
 
 video = driver.find_elements_by_class_name('bnpdmtie')
