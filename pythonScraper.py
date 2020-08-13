@@ -103,7 +103,7 @@ def do_scroll():
 
         driver.execute_script("window.scrollTo(0, 5000)")
     except NoSuchElementException:
-        print("No elem found")
+        print("No button found")
 
 
 do_scroll()
@@ -130,37 +130,79 @@ last_height = driver.execute_script("return document.body.scrollHeight")
 
 #----------------------DELETE UNWANTED ELEMENTS-------------------------------------------------------------------------------
 
-class delete_VAR:
-    def __init__(self, element):
-        self.element = element
 
-    def delete_p(self):
-        ele = self.element
-        try:
-            #ele = self.element
-            driver.execute_script("""
-            var ele = arguments[0];
-            ele.parentNode.removeChild(ele);
-            """, ele)
-        except NoSuchElementException:
-            #continue
-            #time.sleep(0.5)
-            print("No elem found")
+try:
+    element = driver.find_element_by_xpath(
+        '/html/body/div[1]/div[4]/div[1]/div/div/div[2]/div[2]/div/div[3]/div/div[1]/div/div[1]/div[2]/div/div[3]/div/div/div/ul')
+    driver.execute_script("""
+    var element = arguments[0];
+    element.parentNode.removeChild(element);
+    """, element)
+except NoSuchElementException:
+    print("No element found")
+
+try:
+    element2 = driver.find_element_by_xpath(
+        '/html/body/div[1]/div[4]/div[1]/div/div/div[2]/div[2]/div/div[3]/div/div[1]/div/div[2]/div/div/div[2]/div[2]/div/div/div[3]/div/div/div/ul')
+    driver.execute_script("""
+    var element2 = arguments[0];
+    element2.parentNode.removeChild(element2);
+    """, element2)
+except NoSuchElementException:
+    print("No element2 found")
+
+try:
+    element3 = driver.find_element_by_xpath(
+        '/html/body/div[1]/div[4]/div[1]/div/div/div[2]/div[2]/div/div[3]/div/div[1]/div/div[2]/div/div/div[3]/div[2]/div/div/div[3]/div/div/div/ul')
+    driver.execute_script("""
+    var element3 = arguments[0];
+    element3.parentNode.removeChild(element3);
+    """, element3)
+except NoSuchElementException:
+    print("No element3 found")
+
+try:
+    element4 = driver.find_element_by_xpath(
+        '/html/body/div[1]/div[4]/div[1]/div/div/div[2]/div[2]/div/div[3]/div/div[1]/div/div[2]/div/div/div[4]/div[2]/div/div/div[3]/div/div/div/ul')
+    driver.execute_script("""
+    var element4 = arguments[0];
+    element4.parentNode.removeChild(element4);
+    """, element4)
+except NoSuchElementException:
+    print("No element4 found")
+
+try:
+    element5 = driver.find_element_by_xpath(
+        '/html/body/div[1]/div[4]/div[1]/div/div/div[2]/div[2]/div/div[3]/div/div[1]/div/div[2]/div/div/div[5]/div[2]/div/div/div[3]/div/div/div/ul')
+    driver.execute_script("""
+    var element5 = arguments[0];
+    element5.parentNode.removeChild(element5);
+    """, element5)
+except NoSuchElementException:
+    print("No element5 found")
+
+try:
+    element6 = driver.find_element_by_xpath(
+        '/html/body/div[1]/div[3]/div[1]/div/div/div[2]/div[2]/div/div[3]/div/div[1]/div/div[1]')
+    driver.execute_script("""
+    var element6 = arguments[0];
+    element6.parentNode.removeChild(element6);
+    """, element6)
+except NoSuchElementException:
+    print("No element6 found")
+
+
+ele = [x for x in element_list]
+
+def
+    try:
+        driver.execute_script("""
+        var ele = arguments[0];
+        ele.parentNode.removeChild(ele);
+        """, ele)
+    except NoSuchElementException:
+        print("No ele found")
         
-
-
-elem = delete_VAR(driver.find_element_by_xpath('/html/body/div[1]/div[4]/div[1]/div/div/div[2]/div[2]/div/div[3]/div/div[1]/div/div[1]/div[2]/div/div[3]/div/div/div/ul'))
-elem.delete_p()
-elem1 = delete_VAR(driver.find_element_by_xpath('/html/body/div[1]/div[4]/div[1]/div/div/div[2]/div[2]/div/div[3]/div/div[1]/div/div[2]/div/div/div[2]/div[2]/div/div/div[3]/div/div/div/ul'))
-elem1.delete_p()
-elem2 = delete_VAR(driver.find_element_by_xpath('/html/body/div[1]/div[4]/div[1]/div/div/div[2]/div[2]/div/div[3]/div/div[1]/div/div[2]/div/div/div[3]/div[2]/div/div/div[3]/div/div/div/ul'))
-elem2.delete_p()
-elem3 = delete_VAR(driver.find_element_by_xpath('/html/body/div[1]/div[4]/div[1]/div/div/div[2]/div[2]/div/div[3]/div/div[1]/div/div[2]/div/div/div[4]/div[2]/div/div/div[3]/div/div/div/ul'))
-elem3.delete_p()
-elem4 = delete_VAR(driver.find_element_by_xpath('/html/body/div[1]/div[4]/div[1]/div/div/div[2]/div[2]/div/div[3]/div/div[1]/div/div[2]/div/div/div[5]/div[2]/div/div/div[3]/div/div/div/ul'))
-elem4.delete_p()
-# elem5 = delete_VAR(driver.find_element_by_xpath('/html/body/div[1]/div[3]/div[1]/div/div/div[2]/div[2]/div/div[3]/div/div[1]/div/div[1]'))
-# elem5.delete_p()
 
 #-------------------GET LIST OF VIDEO LIKES AND VIEWS----------------------------------------------------
 
