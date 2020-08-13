@@ -32,19 +32,19 @@ driver = webdriver.Firefox()
 driver.get(MainURL)
 
 
-
 time.sleep(1)
 
 #Get the name / fixed tag
 name = driver.find_element_by_id('seo_h1_tag').text
+#name = driver.find_element_by_xpath('//*[@id="js_m"]').text
 
 print(name)
 
 # -----------------GET NUMBER OF FOLLOWERS--------------------------------------------------------------------------
 
 
-
-followers = driver.find_element_by_css_selector('div._2pi2:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)').text
+followers = driver.find_element_by_css_selector(
+    'div._2pi2:nth-child(3) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)').text
 remove = " people follow this,"
 pattern = "[" + remove + "]"
 followers = re.sub(pattern, "", followers)
@@ -60,13 +60,14 @@ time.sleep(1)
 
 #------------------GET NUMBER OF PAGE LIKES------------------------------------------------------------------
 
-page_likes = driver.find_element_by_css_selector('div._2pi2:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)').text
+page_likes = driver.find_element_by_css_selector(
+    'div._2pi2:nth-child(2) > div:nth-child(1) > div:nth-child(2) > div:nth-child(1)').text
 remove2 = ' people like this'
 pattern2 = "[" + remove + "]"
-page_likes = re.sub(pattern2, "" , page_likes)
+page_likes = re.sub(pattern2, "", page_likes)
 remove3 = 'k'
 pattern3 = "[" + remove3 + "]"
-page_likes = re.sub(pattern3, "" , page_likes)
+page_likes = re.sub(pattern3, "", page_likes)
 page_likes = int(page_likes)
 #page_likes = f'{page_likes:,}'
 
@@ -89,18 +90,20 @@ def do_scroll():
 
         time.sleep(5)
 
-        not_now_button = driver.find_element_by_id('expanding_cta_close_button')
+        not_now_button = driver.find_element_by_id(
+            'expanding_cta_close_button')
         not_now_button.click()
 
         time.sleep(3)
 
-        driver.find_element_by_tag_name('body').send_keys(Keys.CONTROL + Keys.HOME)
+        driver.find_element_by_tag_name(
+            'body').send_keys(Keys.CONTROL + Keys.HOME)
 
         time.sleep(1)
 
         driver.execute_script("window.scrollTo(0, 5000)")
     except NoSuchElementException:
-        print("No element found")
+        print("No elem found")
 
 
 do_scroll()
@@ -108,24 +111,21 @@ do_scroll()
 time.sleep(3)
 
 
-
 last_height = driver.execute_script("return document.body.scrollHeight")
 
 # while True:
-   
+
 #     driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 
-    
+
 #     time.sleep(7)
 
-    
+
 #     new_height = driver.execute_script("return document.body.scrollHeight")
 #     if new_height == last_height:
 #         time.sleep(10)
 #         break
 #     last_height = new_height
-    
-
 
 
 #----------------------DELETE UNWANTED ELEMENTS-------------------------------------------------------------------------------
@@ -135,28 +135,32 @@ class delete_VAR:
         self.element = element
 
     def delete_p(self):
+        ele = self.element
         try:
-            ele = self.element
+            #ele = self.element
             driver.execute_script("""
             var ele = arguments[0];
             ele.parentNode.removeChild(ele);
             """, ele)
         except NoSuchElementException:
-            print("No ele found")
-    
+            #continue
+            #time.sleep(0.5)
+            print("No elem found")
+        
 
-elem = delete_VAR(driver.find_element_by_css_selector('div.cwj9ozl2:nth-child(1)'))
+
+elem = delete_VAR(driver.find_element_by_xpath('/html/body/div[1]/div[4]/div[1]/div/div/div[2]/div[2]/div/div[3]/div/div[1]/div/div[1]/div[2]/div/div[3]/div/div/div/ul'))
 elem.delete_p()
-elem1 = delete_VAR(driver.find_element_by_css_selector('div.cbu4d94t:nth-child(3) > div:nth-child(2)'))
+elem1 = delete_VAR(driver.find_element_by_xpath('/html/body/div[1]/div[4]/div[1]/div/div/div[2]/div[2]/div/div[3]/div/div[1]/div/div[2]/div/div/div[2]/div[2]/div/div/div[3]/div/div/div/ul'))
 elem1.delete_p()
-elem2 = delete_VAR(driver.find_element_by_css_selector('div.cjfnh4rs:nth-child(2)'))
+elem2 = delete_VAR(driver.find_element_by_xpath('/html/body/div[1]/div[4]/div[1]/div/div/div[2]/div[2]/div/div[3]/div/div[1]/div/div[2]/div/div/div[3]/div[2]/div/div/div[3]/div/div/div/ul'))
 elem2.delete_p()
-elem3 = delete_VAR(driver.find_element_by_css_selector('html#facebook body._4-u5._2yq.UIPage_LoggedOut.hasBanner._-kb._605a.b_c3pyn-ahh.gecko.win.x1.Locale_en_US.cores-gte4._19_u.hasCookieBanner.hasAXNavMenubar div#u_0_6._li div#globalContainer.uiContextualLayerParent div#content.fb_content.clearfix div div.clearfix div._1qkq._1ql0 div#content_container div div#js_2._2pie div div div.c9zspvje.cbu4d94t.j83agx80 div.ihqw7lf3.cbu4d94t.j83agx80 div.j83agx80.l9j0dhe7.k4urcfbm div.rq0escxv.l9j0dhe7.du4w35lb.hybvsw6c.ue3kfks5.pw54ja7n.uo3d90p7.l82x9zwi.ni8dbmo4.stjgntxs.k4urcfbm.sbcfpzgs div.cbu4d94t.j83agx80 div.n851cfcs'))
+elem3 = delete_VAR(driver.find_element_by_xpath('/html/body/div[1]/div[4]/div[1]/div/div/div[2]/div[2]/div/div[3]/div/div[1]/div/div[2]/div/div/div[4]/div[2]/div/div/div[3]/div/div/div/ul'))
 elem3.delete_p()
-elem4 = delete_VAR(driver.find_element_by_css_selector('div.cbu4d94t:nth-child(4) > div:nth-child(2)'))
+elem4 = delete_VAR(driver.find_element_by_xpath('/html/body/div[1]/div[4]/div[1]/div/div/div[2]/div[2]/div/div[3]/div/div[1]/div/div[2]/div/div/div[5]/div[2]/div/div/div[3]/div/div/div/ul'))
 elem4.delete_p()
-elem5 = delete_VAR(driver.find_element_by_css_selector('div.n851cfcs:nth-child(2)'))
-elem5.delete_p()
+# elem5 = delete_VAR(driver.find_element_by_xpath('/html/body/div[1]/div[3]/div[1]/div/div/div[2]/div[2]/div/div[3]/div/div[1]/div/div[1]'))
+# elem5.delete_p()
 
 #-------------------GET LIST OF VIDEO LIKES AND VIEWS----------------------------------------------------
 
@@ -190,7 +194,7 @@ removetable = str.maketrans('', '', '.')
 parsed_video_likes = [s.translate(removetable) for s in parsed_video_likes]
 for i in range(0, len(parsed_video_likes)):
     parsed_video_likes[i] = int(parsed_video_likes[i])
-    #parsed_video_likes[i] = format(parsed_video_likes[i], "n")	
+    #parsed_video_likes[i] = format(parsed_video_likes[i], "n")
 
 
 print(parsed_video_likes)
@@ -209,13 +213,14 @@ df = pd.DataFrame(video_age_views, columns=["Views"]).astype(int)
 
 df1 = pd.DataFrame(parsed_video_likes, columns=["Video_Likes"]).astype(int)
 
-df2 = pd.DataFrame([name], columns=['Name'], index =[0])
+df2 = pd.DataFrame([name], columns=['Name'], index=[0])
 
 
 df3 = pd.DataFrame([int(followers)], columns=['Followers'], index=[0])
 df3 = df3.fillna(0).astype(int)
 
-df4 = pd.DataFrame([int(page_likes)], columns=['Page_Likes'], index=[0]).astype(int)
+df4 = pd.DataFrame([int(page_likes)], columns=[
+                   'Page_Likes'], index=[0]).astype(int)
 df4 = df4.fillna(0).astype(int)
 result = pd.concat([df2, df3, df4, df, df1], axis=1)
 
