@@ -18,4 +18,4 @@ The data this gets will be used in data science ... *eventually*.
 
 Currently it outputs into a CSV the following : **Name | Followers | Page_Likes | Views | Video_Likes**.
 
-Then outputs this the csv data into a postgresql DB.
+Then outputs the csv data into a postgresql DB.
