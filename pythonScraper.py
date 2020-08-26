@@ -1,11 +1,7 @@
 import time
-import csv
-import json
-import io
 import psycopg2
 from bs4 import BeautifulSoup
 import re
-import os
 import numpy as np
 import pandas as pd
 from selenium import webdriver
