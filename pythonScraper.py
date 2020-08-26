@@ -1,18 +1,17 @@
 import time
-import psycopg2
-from bs4 import BeautifulSoup
 import re
-import numpy as np
 import pandas as pd
 from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as ec
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.firefox.options import Options
-import locale
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.by import By
 from sqlalchemy import create_engine
+import psycopg2
+
+
+import locale
 
 locale.setlocale(locale.LC_ALL, '')
 
