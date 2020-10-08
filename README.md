@@ -1,5 +1,9 @@
 # Python-FacebookGaming-Scraper
 
+## This might be a bust ... facebook is doing all types of crazy things atm . I'll be looking into other ways to do this . 
+## It can still be done but it requires alot of manual imput of xpaths and the delete_wanted elements method isn't working atm.
+## Still, was a great project to learn.
+
 
 It's supposed to get the following from a **main URL** and **videos URL** :
 
